@@ -1,9 +1,21 @@
-import models from './datasources/userAPI';
+// import models from './datasources/userAPI';
+
+const { cache, initCache } = require('cacheflowql')
+
+initCache({ local: {
+  checkExpire: 30
+} })
 
 module.exports = {
   Query: {
+
+    
     getFish: (_, __, { dataSources }, info) =>
-      dataSources.fishAPI.getAllFish()
+      {return cache({ location: 'local', maxAge: 10 }, info, async () => {
+        const fish = await dataSources.fishAPI.getAllFish();
+        return fish
+      })}
+
   },
   /*   users: async (parent, args, { models }) => {
       return await models.User.findAll();
