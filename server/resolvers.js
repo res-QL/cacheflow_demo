@@ -13,6 +13,7 @@ module.exports = {
     getFish: (_, __, { dataSources }, info) =>
       {return cache({ location: 'local', maxAge: 10 }, info, async () => {
         const fish = await dataSources.fishAPI.getAllFish();
+        console.log(fish);
         return fish
       })}
 

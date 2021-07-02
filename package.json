@@ -10,6 +10,8 @@
     "apollo-server-express": "^2.25.2",
     "body-parser": "^1.19.0",
     "cacheflowql": "^1.0.2",
+    "concurrently": "^6.2.0",
+    "css-loader": "^5.2.6",
     "dataloader": "^2.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -17,7 +19,15 @@
     "mongoose": "^5.13.0",
     "nodemon": "^2.0.8",
     "pg": "^8.6.0",
-    "sequelize": "^6.6.4"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0",
+    "sequelize": "^6.6.4",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -28,7 +38,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node server/server.js"
+    "start": "nodemon --exec babel-node server/server.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack serve --open\""
   },
   "repository": {
     "type": "git",
