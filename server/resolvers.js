@@ -13,9 +13,16 @@ module.exports = {
     getFish: (_, __, { dataSources }, info) => {
       return cache({ location: "local", maxAge: 10 }, info, async () => {
         const fish = await dataSources.fishAPI.getAllFish();
+<<<<<<< HEAD
         return fish;
       });
     },
+=======
+        console.log(fish);
+        return fish
+      })}
+
+>>>>>>> dc119ca952b474993e8bc52dc11c93299a38e640
   },
   /*   users: async (parent, args, { models }) => {
       return await models.User.findAll();

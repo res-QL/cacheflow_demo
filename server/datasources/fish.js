@@ -19,10 +19,18 @@ class fishAPI extends RESTDataSource {
 
   fishReducer(fish) {
     return {
+<<<<<<< HEAD
       // id: launch.flight_number || 0,
       Name: fish["Species Name"],
       Rate: fish["Fishing Rate"],
       Region: fish["NOAA Fisheries Region"],
+=======
+      Name: fish['Species Name'],
+      Rate: fish['Fishing Rate'],
+      Region: fish['NOAA Fisheries Region'],
+      State: fish['Quote'],
+      Photo: fish['Species Illustration Photo'].src
+>>>>>>> dc119ca952b474993e8bc52dc11c93299a38e640
     };
   }
 

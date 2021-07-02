@@ -18,6 +18,9 @@ const typeDefs = gql`
     Name: String!
     Rate: String
     Region: String!
+    Photo: String
+    State: String
+
   }
 
 `;
