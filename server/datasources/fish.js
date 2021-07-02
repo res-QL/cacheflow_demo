@@ -8,9 +8,9 @@ class fishAPI extends RESTDataSource {
 
   // write the async function to receive all fish
   async getAllFish() {
-    const response = await this.get('species');
+    const response = await this.get("species");
     return Array.isArray(response)
-      ? response.map(fish => this.fishReducer(fish))
+      ? response.map((fish) => this.fishReducer(fish))
       : [];
   }
 
@@ -20,9 +20,9 @@ class fishAPI extends RESTDataSource {
   fishReducer(fish) {
     return {
       // id: launch.flight_number || 0,
-      Name: fish['Species Name'],
-      Rate: fish['Fishing Rate'],
-      Region: fish['NOAA Fisheries Region'] 
+      Name: fish["Species Name"],
+      Rate: fish["Fishing Rate"],
+      Region: fish["NOAA Fisheries Region"],
     };
   }
 
