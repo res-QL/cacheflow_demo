@@ -15,56 +15,33 @@ class Home extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
-
   }
 
   componentDidMount() {
-    fetch('/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({query: "{ getFish }"})
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((jsonRes) => {
-        this.setState({
-          items: jsonRes,
-          isLoaded: true,
-        });
-      });
-  }
+    // handleFavorite = (id, species) => {
+    //   let method = "POST";
+    //   if (!this.state.favorite[id]) {
+    //     this.setState({
+    //       favorite: { [id]: species },
+    //     });
+    //   }
 
-  handleFavorite = (id, species) => {
-    let method = "POST";
-    if (!this.state.favorite[id]) {
-      this.setState({
-        favorite: { [id]: species },
-      });
-    }
-
-    fetch("/fish/postFish", {
-      method: method,
-      body: JSON.stringify(this.state.favorite),
+    fetch("/graphql", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
+      body: JSON.stringify({ query: "{ getFish { Name Region Rate Photo State }}" }),
     })
       .then((res) => {
         return res.json();
       })
       .then((jsonRes) => {
-        console.log(jsonRes);
-        return jsonRes;
+        console.log("THIS IS JSONRES", jsonRes.data.getFish);
+        this.setState({items: jsonRes.data.getFish, isLoaded: true });
       })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  }
 
   handleClick = (id) => {
     this.setState({ show: true, id: id });
@@ -78,7 +55,6 @@ class Home extends Component {
     console.log(this.state.id);
   };
 
-
   render() {
     return (
       <div>
@@ -90,11 +66,11 @@ class Home extends Component {
             <FishCard
               key={i}
               keyId={i}
-              speciesName={fish["Species Name"]}
-              speciesPicture={fish["Species Illustration Photo"]}
-              fishingRegion={fish["NOAA Fisheries Region"]}
-              fishingRate={fish["Fishing Rate"]}
-              stateofFish={fish["Quote"]}
+              speciesName={fish.Name}
+              speciesPicture={fish.Photo}
+              fishingRegion={fish.Region}
+              fishingRate={fish.Rate}
+              stateofFish={fish.State}
               show={this.state.show}
               handleClick={this.handleClick}
               handleCloseClick={(id) => {

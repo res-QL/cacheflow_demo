@@ -8,12 +8,12 @@ class FishCard extends Component {
   }
 
   render() {
-    // console.log(this.props.speciesPicture.src);
+    // console.log('species picture', this.props.speciesPicture);
     let pictureExists = this.props.speciesPicture;
     return (
       <div className="fishCard">
         <ul>
-          <img src={this.props.speciesPicture.src} alt="" />
+          <img src={this.props.speciesPicture}/>
           <li>
             <strong>Species Name:</strong> {this.props.speciesName}
           </li>
