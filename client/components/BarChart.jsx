@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Bar } from "react-chartjs-2";
+import globalMetrics from "../../globalMetrics.json";
+import localMetrics from "../../localMetricsStorage.json";
 
 class BarChart extends Component {
   constructor(props) {
@@ -8,7 +10,14 @@ class BarChart extends Component {
   }
 
   render() {
-    console.log(this.props);
+
+    // console.log("globalMetrics:", globalMetrics)
+    console.log("localMetrics:", localMetrics)
+    // console.log(localMetrics.getFishToLocal.uncachedCallTime)
+
+    let uncachedCallTime = 0;
+    if (localMetrics.getFishToLocal.uncachedCallTime !== {}) uncachedCallTime = localMetrics.getFishToLocal.uncachedCallTime
+
     return (
       <div>
         <Bar
@@ -17,7 +26,7 @@ class BarChart extends Component {
             datasets: [
               {
                 label: "test",
-                data: [10, this.props.height],
+                data: [uncachedCallTime, 2, 3],
               },
             ],
           }}

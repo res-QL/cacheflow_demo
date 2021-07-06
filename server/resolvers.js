@@ -11,7 +11,7 @@ module.exports = {
   // sends to local
   Query: {
     getFishFromDatabase: (_, __, { dataSources }, info) => {
-      const fish = await dataSources.fishAPI.getAllFish();
+      const fish = dataSources.fishAPI.getAllFish();
       return fish;
     },
     getFishToLocal: (_, __, { dataSources }, info) => {

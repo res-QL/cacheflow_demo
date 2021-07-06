@@ -10,15 +10,18 @@ class QueryResult extends Component {
     return (
       <div className="QueryResult">
         <ul>
-          //loop through all the things we get back and place them as individual
-          items on a list
-          <li>
-            <strong>Species Name:</strong> {this.props.speciesName}
-          </li>
-          <li>
-            <strong>Fishing Region:</strong> {this.props.fishingRegion}
-          </li>
-          <li>Fishing Rate: {this.props.fishingRate}</li>
+          {this.props.items.map((fish, i) => (
+            <div>
+              <li>
+                <strong>Species Name:</strong> {fish.Name}
+              </li>
+              <li>
+                <strong>Fishing Region:</strong> {fish.Region}
+              </li>
+              <li>Fishing Rate: {fish.Rate}</li>
+              <li>State of Fish: {fish.Region}</li>
+            </div>
+          ))}
         </ul>
       </div>
     );
