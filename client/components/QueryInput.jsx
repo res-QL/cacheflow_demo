@@ -11,13 +11,13 @@ class QueryInput extends React.Component {
         <div className="Searchbar">
           <input type="text" placeholder="Paste Query" />
         </div>
-        <button onClick={this.props.APIRequest}>Retrieve from API</button>
+        <button onClick={this.props.DryAPIRequest}>Retrieve from API</button>
         <button onClick={this.props.APIToLocal}>Move to Local Cache</button>
         <button onClick={this.props.APIToLocal}>
           Retrieve from Local Cache
         </button>
         <button onClick={this.props.APIToRedis}>Move to Redis Cache</button>
-        <button onClick={this.props.APIToRedis}>Retrieve to Redis Cache</button>
+        <button onClick={this.props.APIToRedis}>Retrieve from Redis Cache</button>
       </div>
     );
   }

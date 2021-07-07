@@ -8,16 +8,41 @@ class BarChart extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Bar
           data={{
-            labels: ["Database", "Local Cache", "Redis"],
+            labels: [
+              `Local Uncached Latency (${this.props.localData.getFishToLocal
+                ? this.props.localData.getFishToLocal.uncachedCallTime
+                : 0})`,
+              `Local Cached Latency (${this.props.localData.getFishToLocal
+                ? this.props.localData.getFishToLocal.cachedCallTime
+                : 0})`,
+              `Redis Uncached Latency (${this.props.localData.getFishToRedis
+                ? this.props.localData.getFishToRedis.uncachedCallTime
+                : 0})`,
+              `Redis Cached Latency (${this.props.localData.getFishToRedis
+                ? this.props.localData.getFishToRedis.cachedCallTime
+                : 0})`,
+            ],
             datasets: [
               {
-                label: "test",
-                data: [10, this.props.height],
+                label: "Latency",
+                data: [
+                  this.props.localData.getFishToLocal
+                    ? this.props.localData.getFishToLocal.uncachedCallTime
+                    : 0,
+                  this.props.localData.getFishToLocal
+                    ? this.props.localData.getFishToLocal.cachedCallTime
+                    : 0,
+                  this.props.localData.getFishToRedis
+                    ? this.props.localData.getFishToRedis.uncachedCallTime
+                    : 0,
+                  this.props.localData.getFishToRedis
+                    ? this.props.localData.getFishToRedis.cachedCallTime
+                    : 0,
+                ],
               },
             ],
           }}
