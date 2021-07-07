@@ -21,13 +21,13 @@ app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../client/index.html"));
 });
 
-app.get("/metrics/global", async (req, res) => {
-  const data = await fs.promises.readFile(
-    path.join(__dirname, "../localMetricsStorage.json")
-  );
-  console.log(data.toString());
-  res.status(200).json(JSON.parse(data.toString()));
-});
+// app.get("/metrics/global", async (req, res) => {
+//   const data = await fs.promises.readFile(
+//     path.join(__dirname, "../localMetricsStorage.json")
+//   );
+//   console.log(data.toString());
+//   res.status(200).json(JSON.parse(data.toString()));
+// });
 
 app.get('/getMetrics', (req, res) => {
   const globalData = fs.readFileSync('globalMetrics.json', 'utf-8');
