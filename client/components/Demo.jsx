@@ -12,6 +12,8 @@ class Demo extends Component {
       isLoaded: false,
       show: false,
       id: null,
+      globalData: {"totalNumberOfRequests":0,"totalTimeSaved":0,"sizeOfDataRedis":0,"sizeOfDataLocal":0},
+      localData: {"getFishToLocal":{"firstCall":null,"allCalls":[],"numberOfCalls":0,"averageCallSpan":null,"uncachedCallTime":0,"cachedCallTime":0,"dataSize":0,"storedLocation":"local"}, "getFishToRedis": {"firstCall":null,"allCalls":[],"numberOfCalls":0,"averageCallSpan":null,"uncachedCallTime":0,"cachedCallTime":0,"dataSize":0,"storedLocation":"redis"}},
     };
 
     this.DryAPIRequest = this.DryAPIRequest.bind(this);
@@ -32,14 +34,12 @@ class Demo extends Component {
         query: "{ getFishFromDatabase { Name Region Rate Photo State }}",
       }),
     })
-      .then((res) => {
-        return res.json();
-      })
+    .then(res=>res.json())
       .then((jsonRes) => {
         this.setState({
-          items: jsonRes.data.getFishFromDatabase,
-          isLoaded: true,
+          items: jsonRes.data.getFishFromDatabase
         });
+        this.JSONTest();
       });
   }
 
@@ -55,11 +55,10 @@ class Demo extends Component {
         query: "{ getFishToLocal { Name Region Rate Photo State }}",
       }),
     })
-      .then((res) => {
-        return res.json();
-      })
+    .then(res=>res.json())
       .then((jsonRes) => {
-        this.setState({ items: jsonRes.data.getFishToLocal, isLoaded: true });
+        this.setState({items: jsonRes.data.getFishToLocal});
+        this.JSONTest();
       });
   }
 
@@ -75,38 +74,28 @@ class Demo extends Component {
         query: "{ getFishToRedis { Name Region Rate Photo State }}",
       }),
     })
-      .then((res) => {
-        return res.json();
-      })
+    .then(res=>res.json())
       .then((jsonRes) => {
-        this.setState({ items: jsonRes.data.getFishToRedis, isLoaded: true });
+        this.setState({items: jsonRes.data.getFishToRedis});
+        this.JSONTest();
       });
-  }
+  };
 
-  /*   updateLatency() {
-    console.log("click");
-
-    this.setState({ latency: 15 });
-    console.log(this.state);
-    //fetch /getmetrics here
-    fetch("/graphql", {
-      method: "POST",
+  JSONTest() {
+    fetch("/getMetrics", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({
-        query: "{ getFish { Name Region Rate Photo State }}",
-      }),
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((jsonRes) => {
-        console.log(jsonRes.data.getFish);
-        this.setState({ items: jsonRes.data.getFish, isLoaded: true });
-      });
-  } */
+      .then((res) => res.json())
+      .then((data) => (this.setState({
+        globalData:data.globalData,
+        localData:data.localData})
+        )
+      )
+      .catch((err) => console.log(err));
+  }
 
   render() {
     return (
@@ -117,10 +106,9 @@ class Demo extends Component {
             DryAPIRequest={this.DryAPIRequest}
             APIToLocal={this.APIToLocal}
             APIToRedis={this.APIToRedis}
-            /*           updateLatency={this.updateLatency} */
           />
+          <BarChart globalData = {this.state.globalData} localData = {this.state.localData}/>
           <QueryResult items={this.state.items} />
-          <BarChart />
         </div>
       </div>
     );

@@ -1,1 +1,1 @@
-{"totalNumberOfRequests":0,"totalTimeSaved":0,"sizeOfDataRedis":0,"sizeOfDataLocal":0}
+{"totalNumberOfRequests":5,"averageNumberOfCalls":2.5,"numberOfUncachedRequests":0,"numberOfCachedRequests":3,"totalTimeSaved":null,"averageUncachedLatency":0,"averageCachedLatency":0.6666666666666666,"totalUncachedElapsed":0,"totalCachedElapsed":2,"globalAverageCallSpan":0,"uniqueResolvers":2,"sizeOfDataRedis":1128544,"sizeOfDataLocal":0,"averageSizeOfDataLocal":36144}

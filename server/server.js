@@ -1,4 +1,7 @@
-const { ApolloServer, graphqlExpress } = require("apollo-server-express");
+const {
+  ApolloServer,
+  graphqlExpress
+} = require("apollo-server-express");
 const express = require("express");
 // const bodyParser = require("body-parser");
 const typeDefs = require("./typeDefs");
@@ -26,10 +29,14 @@ app.get("/metrics/global", async (req, res) => {
   res.status(200).json(JSON.parse(data.toString()));
 });
 
-// app.get(
-//   "/metrics/local",
-//   fs.readFile(path.join(__dirname, "./localMetricsStorage.json"))
-// );
+app.get('/getMetrics', (req, res) => {
+  const globalData = fs.readFileSync('globalMetrics.json', 'utf-8');
+  const globalDataJson = JSON.parse(globalData)
+  const localData = fs.readFileSync('localMetricsStorage.json','utf-8');
+  const localDataJson = JSON.parse(localData);
+  res.status(200).send({globalData:globalDataJson,localData:localDataJson})
+});
+
 
 const server = new ApolloServer({
   typeDefs,

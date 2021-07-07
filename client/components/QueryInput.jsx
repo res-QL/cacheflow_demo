@@ -17,7 +17,7 @@ class QueryInput extends React.Component {
           Retrieve from Local Cache
         </button>
         <button onClick={this.props.APIToRedis}>Move to Redis Cache</button>
-        <button onClick={this.props.APIToRedis}>Retrieve to Redis Cache</button>
+        <button onClick={this.props.APIToRedis}>Retrieve from Redis Cache</button>
       </div>
     );
   }

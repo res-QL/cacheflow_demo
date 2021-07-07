@@ -1,1 +1,1 @@
-{}
+{"getFishToRedis":{"firstCall":1625616308121,"allCalls":[1625616308121,1625616323757],"numberOfCalls":2,"averageCallSpan":15636,"uncachedCallTime":3580,"dataSize":72288,"storedLocation":"redis"},"getFishToLocal":{"firstCall":1625616314744,"allCalls":[1625616314744,1625616318155,1625616319120],"numberOfCalls":3,"averageCallSpan":4376,"uncachedCallTime":3239,"cachedCallTime":1,"dataSize":0,"storedLocation":"local"}}
