@@ -11,7 +11,18 @@ function NavBar() {
           marginLeft: '10px',
         }}
       >
-        <div id="title">cacheflow</div>
+        {/* <div id="title">cacheflow</div> */}
+        <div className="logo is-animetion" id="title">
+          <span>c</span>
+          <span>a</span>
+          <span>c</span>
+          <span>h</span>
+          <span>e</span>
+          <span>f</span>
+          <span>l</span>
+          <span>o</span>
+          <span>w</span>
+        </div>
       </div>
       <div
         className="NavBarLinks"
