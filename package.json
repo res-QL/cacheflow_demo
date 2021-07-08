@@ -11,7 +11,7 @@
     "apollo-server-express": "^2.25.2",
     "babel-loader": "^8.2.2",
     "body-parser": "^1.19.0",
-    "cacheflowql": "^1.0.4",
+    "cacheflowql": "^1.0.7",
     "chart.js": "^3.4.0",
     "concurrently": "^6.2.0",
     "css-loader": "^5.2.6",
@@ -48,7 +48,11 @@
     "dev": "NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack serve --open\""
   },
   "nodemonConfig": {
-    "ignore": ["localStorage.json", "localMetricStorage.json","globalMetrics.json"]
+    "ignore": [
+      "localStorage.json",
+      "localMetricStorage.json",
+      "globalMetrics.json"
+    ]
   },
   "repository": {
     "type": "git",

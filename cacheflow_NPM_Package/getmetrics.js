@@ -1,8 +1,8 @@
-const fs = require('fs')
+const fs = require('fs');
 
-console.log('hello')
+console.log('hello');
 
 const cachedData = fs.readFileSync('./globalMetrics.json', 'utf8');
-    const parsedData = JSON.parse(cachedData);
+const parsedData = JSON.parse(cachedData);
 
-console.log(parsedData)
+console.log(parsedData);
