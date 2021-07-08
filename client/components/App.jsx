@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import Demo from "./Demo.jsx";
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import Demo from './Demo.jsx';
+
+import NavBar from './NavBar.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -8,7 +10,12 @@ class App extends Component {
   }
 
   render() {
-    return <Demo />;
+    return (
+      <div>
+        <NavBar></NavBar>
+        <Demo />
+      </div>
+    );
   }
 }
 
