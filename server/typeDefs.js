@@ -2,9 +2,13 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Query {
+    getUsername(id: ID!): User
+    getUsers: [User!]
+
     getFishFromDatabase: [Fish]!
     getFishToLocal: [Fish]!
     getFishToRedis: [Fish]!
+    getMe: User!
   }
 
   type Fish {
@@ -14,6 +18,13 @@ const typeDefs = gql`
     Region: String!
     Photo: String
     State: String
+    User: User
+  }
+
+  type User {
+    id: ID!
+    Username: String!
+    FavoriteFish: Fish
   }
 `;
 

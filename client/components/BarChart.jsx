@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Bar } from "react-chartjs-2";
+import { Bar, Line} from "react-chartjs-2";
 
 class BarChart extends Component {
   constructor(props) {
@@ -8,6 +8,20 @@ class BarChart extends Component {
   }
 
   render() {
+    const lineChartState = {
+      labels: this.props.lineChartLabels,
+      datasets: [
+        {
+          label: 'Total Time Saved',
+          fill: false,
+          //lineTension: 0.5,
+          backgroundColor: 'rgba(75,192,192,1)',
+          borderColor: 'rgba(0,0,0,1)',
+          borderWidth: 2,
+          data: this.props.lineChartData
+        }
+      ]
+    }
     return (
       <div>
         <Bar
@@ -46,9 +60,24 @@ class BarChart extends Component {
               },
             ],
           }}
-          height={400}
-          width={600}
+          height={200}
+          width={300}
         />
+        <Line
+          data={lineChartState}
+          options={{
+            title:{
+              display:true,
+              text:'Number of Requests',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right'
+            }
+          }}
+        />
+
       </div>
     );
   }

@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+let users = require('./users')
 
 const {
   cache,
@@ -26,7 +27,6 @@ function fishReducer(fish) {
   };
 }
 
-//we need to add a way to get it to redis as well
 module.exports = {
   // sends to local
   Query: {
@@ -102,5 +102,26 @@ module.exports = {
         }
       });
     },
+    getUsername: (parent, { id }) => {
+      return users[id];
+    },
+    getUsers: () => {
+      return Object.values(users)
+    },
+    getMe: (parent, args, { me }) => {
+      return me;
+    }
   },
+  User: {
+    Username: user => {
+      return `${user.firstname} ${user.lastname}`
+    }
+  },
+  Fish: {
+    user: (parent, args, { me }) => {
+      return me;
+    }
+  }
 };
+
+export default users;

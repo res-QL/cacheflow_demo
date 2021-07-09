@@ -9,11 +9,37 @@ class Demo extends Component {
     super(props);
     this.state = {
       items: [],
-      isLoaded: false,
-      show: false,
+      lineChartData: [],
+      lineChartLabels: [],
       id: null,
-      globalData: {"totalNumberOfRequests":0,"totalTimeSaved":0,"sizeOfDataRedis":0,"sizeOfDataLocal":0},
-      localData: {"getFishToLocal":{"firstCall":null,"allCalls":[],"numberOfCalls":0,"averageCallSpan":null,"uncachedCallTime":0,"cachedCallTime":0,"dataSize":0,"storedLocation":"local"}, "getFishToRedis": {"firstCall":null,"allCalls":[],"numberOfCalls":0,"averageCallSpan":null,"uncachedCallTime":0,"cachedCallTime":0,"dataSize":0,"storedLocation":"redis"}},
+      globalData: {
+        totalNumberOfRequests: 0,
+        totalTimeSaved: 0,
+        sizeOfDataRedis: 0,
+        sizeOfDataLocal: 0,
+      },
+      localData: {
+        getFishToLocal: {
+          firstCall: null,
+          allCalls: [],
+          numberOfCalls: 0,
+          averageCallSpan: null,
+          uncachedCallTime: 0,
+          cachedCallTime: 0,
+          dataSize: 0,
+          storedLocation: "local",
+        },
+        getFishToRedis: {
+          firstCall: null,
+          allCalls: [],
+          numberOfCalls: 0,
+          averageCallSpan: null,
+          uncachedCallTime: 0,
+          cachedCallTime: 0,
+          dataSize: 0,
+          storedLocation: "redis",
+        },
+      },
     };
 
     this.DryAPIRequest = this.DryAPIRequest.bind(this);
@@ -34,10 +60,10 @@ class Demo extends Component {
         query: "{ getFishFromDatabase { Name Region Rate Photo State }}",
       }),
     })
-    .then(res=>res.json())
+      .then((res) => res.json())
       .then((jsonRes) => {
         this.setState({
-          items: jsonRes.data.getFishFromDatabase
+          items: jsonRes.data.getFishFromDatabase,
         });
         this.JSONTest();
       });
@@ -55,9 +81,9 @@ class Demo extends Component {
         query: "{ getFishToLocal { Name Region Rate Photo State }}",
       }),
     })
-    .then(res=>res.json())
+      .then((res) => res.json())
       .then((jsonRes) => {
-        this.setState({items: jsonRes.data.getFishToLocal});
+        this.setState({ items: jsonRes.data.getFishToLocal });
         this.JSONTest();
       });
   }
@@ -74,12 +100,12 @@ class Demo extends Component {
         query: "{ getFishToRedis { Name Region Rate Photo State }}",
       }),
     })
-    .then(res=>res.json())
+      .then((res) => res.json())
       .then((jsonRes) => {
-        this.setState({items: jsonRes.data.getFishToRedis});
+        this.setState({ items: jsonRes.data.getFishToRedis });
         this.JSONTest();
       });
-  };
+  }
 
   JSONTest() {
     fetch("/getMetrics", {
@@ -89,11 +115,19 @@ class Demo extends Component {
       },
     })
       .then((res) => res.json())
-      .then((data) => (this.setState({
-        globalData:data.globalData,
-        localData:data.localData})
-        )
-      )
+      .then((data) => {
+        const LCData = this.state.lineChartData.slice();
+        const LCLabels = this.state.lineChartLabels.slice();
+        LCLabels.push(this.state.globalData.totalNumberOfRequests);
+        LCData.push(this.state.globalData.totalTimeSaved)(
+          this.setState({
+            globalData: data.globalData,
+            localData: data.localData,
+            lineChartLabels: LCLabels,
+            lineChartData: LCData,
+          })
+        );
+      })
       .catch((err) => console.log(err));
   }
 
@@ -107,7 +141,12 @@ class Demo extends Component {
             APIToLocal={this.APIToLocal}
             APIToRedis={this.APIToRedis}
           />
-          <BarChart globalData = {this.state.globalData} localData = {this.state.localData}/>
+          <BarChart
+            globalData={this.state.globalData}
+            localData={this.state.localData}
+            lineChartLabels={this.state.lineChartLabels}
+            lineChartData={this.state.lineChartData}
+          />
           <QueryResult items={this.state.items} />
         </div>
       </div>
