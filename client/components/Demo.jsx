@@ -45,7 +45,6 @@ class Demo extends Component {
     this.DryAPIRequest = this.DryAPIRequest.bind(this);
     this.APIToLocal = this.APIToLocal.bind(this);
     this.APIToRedis = this.APIToRedis.bind(this);
-    // this.updateLatency = this.updateLatency.bind(this);
   }
 
   //this function allows us to move data from API to local cache
