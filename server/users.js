@@ -1,10 +1,22 @@
-module.exports = {
-  1: {
+module.exports = [
+  {
     id: '1',
-    username: 'Ian Goodman',
+    Username: 'Ian Goodman',
+    FavoriteFish: ['White Hake']
   },
-  2: {
+  {
     id: '2',
-    username: 'Eddie Wang',
+    Username: 'Eddie Wang',
+    FavoriteFish: ['White Hake']
   },
-};
+  {
+    id: '3',
+    Username: 'Walker Marsh',
+    FavoriteFish: ['White Hake', 'American Lobster']
+  },
+  {
+    id: '4',
+    Username: 'Tyler Holdren',
+    FavoriteFish: ['White Hake']
+  }
+];

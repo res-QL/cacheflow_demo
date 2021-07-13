@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
-let users = require('./users')
+let users = require('./users');
+let fs = require('fs');
+let fishTestData
 
 const {
   cache,
@@ -28,24 +30,23 @@ function fishReducer(fish) {
 }
 
 module.exports = {
-  // sends to local
   Query: {
     getFishFromDatabase: async (_, __, {
       dataSources
     }, info) => {
-      try{
-        const fishData =  await fetch("https://www.fishwatch.gov/api/species", {
+      try {
+        const fishData = await fetch("https://www.fishwatch.gov/api/species", {
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
           },
         })
         const json = await fishData.json();
-      return Array.isArray(json)
-    ? json.map((fish) => fishReducer(fish))
-    : [];
-      }
-      catch(err){
+        fishTestData = json.map((fish) => fishReducer(fish))
+        return Array.isArray(json) ?
+          json.map((fish) => fishReducer(fish)) :
+          [];
+      } catch (err) {
         console.log(err);
         return err;
       }
@@ -58,7 +59,7 @@ module.exports = {
         maxAge: 10
       }, info, async () => {
         // const fish = await dataSources.fishAPI.getAllFish();
-        try{
+        try {
           const fishData = await fetch("https://www.fishwatch.gov/api/species", {
             headers: {
               "Content-Type": "application/json",
@@ -66,12 +67,11 @@ module.exports = {
             },
           })
           const json = await fishData.json()
-        return Array.isArray(json)
-      ? json.map((fish) => fishReducer(fish))
-      : [];
-        //  console.log(json)
-        }
-        catch(err){
+          fishTestData = json.map((fish) => fishReducer(fish))
+          return Array.isArray(json) ?
+            json.map((fish) => fishReducer(fish)) :
+            [];
+        } catch (err) {
           console.log(err);
           return err;
         }
@@ -84,44 +84,66 @@ module.exports = {
         location: "redis",
         maxAge: 10
       }, info, async () => {
-        try{
-          const fishData =  await fetch("https://www.fishwatch.gov/api/species", {
+        try {
+          const fishData = await fetch("https://www.fishwatch.gov/api/species", {
             headers: {
               "Content-Type": "application/json",
               "Accept": "application/json",
             },
           })
           const json = await fishData.json()
-        return Array.isArray(json)
-      ? json.map((fish) => fishReducer(fish))
-      : [];
-        }
-        catch(err){
+          fishTestData = json.map((fish) => fishReducer(fish))
+          return Array.isArray(json) ?
+            json.map((fish) => fishReducer(fish)) :
+            [];
+        } catch (err) {
           console.log(err);
           return err;
         }
       });
     },
-    getUsername: (parent, { id }) => {
+    getUsername: (parent, {id}) => {
       return users[id];
     },
     getUsers: () => {
-      return Object.values(users)
+      return users;
     },
-    getMe: (parent, args, { me }) => {
+    getMe: (parent, args, {me}) => {
       return me;
     }
   },
-  User: {
-    Username: user => {
-      return `${user.firstname} ${user.lastname}`
+  Mutation:{
+    addFavoriteFish:(parent,args,ctx,info)=>{
+      const user = ctx.users.forEach((user)=>{
+        if(user.id === args.user) {
+          user.FavoriteFish.push(args.name)
+        }
+      }) 
+      //if(!user) throw new Error('user not found')
+      return args.name;
+    },
+    deleteFavoriteFish:(parent, args, ctx, info)=>{
+      const user = ctx.users.forEach((user)=>{
+        if(user.id === args.user) {
+          for (let i = 0; i < user.FavoriteFish.length; i++) {
+            if (args.name === user.FavoriteFish[i]) user.FavoriteFish.splice(i,1)
+          }
+        }
+      }) 
+      //if(!user) throw new Error('Error in delete FavoriteFish')
+      return args.name;
     }
   },
+    User: {
+      FavoriteFish: (parent, args, ctx, info) => {
+        const fishData = Object.values(fishTestData).filter(fish =>
+          parent.FavoriteFish.includes(fish.Name))
+        return fishData
+      }
+    },
   Fish: {
-    user: (parent, args, { me }) => {
+    User: (parent, args, {me}) => {
       return me;
     }
   }
 };
-
-export default users;

@@ -44,7 +44,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: {
-    me: users[1]
+    me: users[1],
+    users
   },
   dataSources: () => ({
     fishAPI: new FishAPI(),
