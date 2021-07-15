@@ -7,7 +7,6 @@ class QueryResult extends Component {
   }
 
   render() {
-    console.log(this.props.items);
     return (
       <div className="QueryResult">
         <div className="QueryResult-Header">
