@@ -1,20 +1,18 @@
 import React from 'react';
-import { configure, mount, shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import 'jest-enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import toJson from 'enzyme-to-json';
 import 'jest-canvas-mock';
 import fetch from 'node-fetch';
 
 import Demo from '../client/components/Demo';
 import NavBar from '../client/components/NavBar';
 import QueryResult from '../client/components/QueryResult';
-import QueryInput from '../client/components/QueryInput';
 import BarChart from '../client/components/BarChart';
 
 configure({ adapter: new Adapter() });
 
-xdescribe('Demo', () => {
+describe('Demo', () => {
   const state = generateState();
   let DemoComponent;
 
@@ -114,12 +112,12 @@ function generateState() {
   };
 }
 
-xdescribe('QueryResult', () => {
+describe('QueryResult', () => {
   let wrapper;
   beforeAll(() => {
     wrapper = shallow(<QueryResult />);
   });
-  //expect(wrapper.find('p')).toBe(true);
+
   it('WRAPPER TEST', () => {
     expect(wrapper).toBe(wrapper);
   });
@@ -156,15 +154,5 @@ describe('NavBar', () => {
     expect(wrapper.text()).toEqual(
       'cacheflowQL...a lightweight npm package providing developers insight into GraphQL queries and metrics concerning cached dataGitHubLinkedIn'
     );
-    expect(wrapper.find('.Abstract-Container')).toHaveHTML('<p></p>');
   });
-  // it('Renders a <p> tag', () => {});
 });
-
-//toBeEmptyRender
-
-//toExist
-
-//toContainMatchingElement
-
-//toContainReact*/
