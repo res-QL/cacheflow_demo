@@ -1,10 +1,11 @@
 const { ApolloServer, graphqlExpress } = require('apollo-server-express');
 const express = require('express');
 // const bodyParser = require("body-parser");
-const typeDefs = require('./typeDefs');
-const resolvers = require('./resolvers');
-const path = require('path');
-const fs = require('fs');
+const typeDefs = require("./typeDefs");
+const resolvers = require("./resolvers");
+const path = require("path");
+const fs = require("fs");
+let users = require('./users')
 
 const FishAPI = require('./datasources/fish');
 
@@ -67,6 +68,10 @@ function terminalMiddleware(req, res, next) {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: {
+    me: users[1],
+    users
+  },
   dataSources: () => ({
     fishAPI: new FishAPI(),
   }),

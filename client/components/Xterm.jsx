@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import { XTerm } from 'xterm-for-react';
+import { XTerm } from 'xterm-for-react';
 
 function XtermComponent() {
   const xtermRef = React.useRef(null);
