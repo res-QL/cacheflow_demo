@@ -11,7 +11,7 @@
     "apollo-server-express": "^2.25.2",
     "babel-loader": "^8.2.2",
     "body-parser": "^1.19.0",
-    "cacheflowql": "^1.0.7",
+    "cacheflowql": "^1.1.0",
     "chart.js": "^3.4.0",
     "concurrently": "^6.2.0",
     "css-loader": "^5.2.6",
