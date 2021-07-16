@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap');
+
+
+/* Colors: 
+light purple: #b09edb 
+darker purple : rgba(53,17,163,255)
+blue: #62ccdd
+*/
+
+/* Global Settings */
+*{
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  font-family: Raleway,
+  
+}
+
+a{
+  text-decoration: none;
+  color: rgba(53,17,163,255);
+  /* color: rgb(29, 29, 29); */
+}
+
+#title {
+  color:rgb(53, 17, 163);
+  margin-left: 30px;
+}
+
+/* Navigation Bar */
+#NavBar{
+  position: relative;
+  /* background-color: rgb(122,99,189); */
+  border-bottom: 1px solid #62ccdd;
+  height: 80px;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+}
+
+
+.NavBarLinks{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Main Container */
+.demoContainer {
+  display: flex;
+  width: 100%; 
+  height: 80%; 
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.queryResult {
+  width: 20%; 
+  height: 100%; 
+  overflow: auto;
+  /* background-color: rgb(247, 247, 247); */
+  border-radius: 10px;
+  justify-content: center;
+  /* padding-left: 4%; */
+  /* padding: 20px 20px 20px 30px; */
+  padding: 30px 50px; 
+  margin: 0px 200px 0px 150px; 
+  /* border: solid 30px rgb(240, 240, 240); */
+  border: solid 1px rgb(53, 17, 163);
+  /* box-shadow: 0px 0px 36px -15px rgba(0,0,0,0.35) inset; */
+/* -webkit-box-shadow: 0px 0px 36px -15px rgba(0,0,0,0.35) inset; */
+/* -moz-box-shadow: 0px 0px 36px -15px rgba(0,0,0,0.35) inset; */
+}
+
+.queryResult li {
+  margin: 10px;
+}
+
+.queryContainer {
+  display: flex; 
+  flex: column;
+}
+
+/* .barChart {
+  width: 33%;
+} */
+
+/* .queryInput {
+  width: 33%
+} */
+
+.SearchBarButtons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+/* Colors: 
+light purple: #b09edb 
+darker purple : rgba(53,17,163,255)
+blue: #62ccdd
+*/
+
+button {
+  background-color: rgb(255, 255, 255);
+  border: rgb(53, 17, 163) solid 1px;
+  border-radius: 15px;
+  color: rgb(53, 17, 163);
+  margin: 15px; 
+  padding: 10px; 
+  font-size: 0.8rem;
+}
+
+button:first-child {
+  margin-top: 0px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(53, 17, 163);
+  color:rgb(200, 182, 255);
+  transition: all 0.2s;
+}
+
+.graphs {
+  margin-bottom: 40px;
+  margin-right: 50px;
+
+  height: 50%;
+  max-width: 100%;
+}
+
+/* RANDOM shit */
+
+/* Grow */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+/* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: -3px;
+  background: rgba(53,17,163,255);
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+/* logo flow */
+.logo.is-animetion {
+  margin-top: 0rem;
+}
+
+.logo.is-animetion span {
+  display: inline-block;
+  animation: wave-text 1s ease-in-out;
+}
+
+.logo.is-animetion {
+  span:nth-of-type(1){ animation-delay: 0.0s; }
+  span:nth-of-type(2){ animation-delay: 0.1s; }
+  span:nth-of-type(3){ animation-delay: 0.2s; }
+  span:nth-of-type(4){ animation-delay: 0.3s; }
+  span:nth-of-type(5){ animation-delay: 0.4s; }
+  span:nth-of-type(6){ animation-delay: 0.5s; }
+  span:nth-of-type(7){ animation-delay: 0.6s; }
+  span:nth-of-type(8){ animation-delay: 0.7s; }
+  span:nth-of-type(9){ animation-delay: 0.8s; }
+}
+
+
+@keyframes wave-text{
+  00%{
+    transform: translateY(0em);
+  }
+  60%{
+    transform: translateY(-0.6em);
+  }
+  100%{
+    transform: translateY(0em);
+  }
+}
+
