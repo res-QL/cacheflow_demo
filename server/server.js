@@ -8,12 +8,14 @@ const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
 const path = require("path");
 const fs = require("fs");
+let users = require('./users')
 
 const FishAPI = require("./datasources/fish");
 
 const PORT = 3000;
 
 const app = express();
+
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
 
@@ -41,6 +43,10 @@ app.get('/getMetrics', (req, res) => {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: {
+    me: users[1],
+    users
+  },
   dataSources: () => ({
     fishAPI: new FishAPI(),
   }),
