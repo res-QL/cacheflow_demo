@@ -1,1 +1,1 @@
-{"getFishToLocal":{"firstCall":1626446018405,"allCalls":[1626446018405],"numberOfCalls":1,"averageCallSpan":"Insufficient Data","uncachedCallTime":672,"cachedCallTime":null,"dataSize":72336,"storedLocation":"local","cacheThreshold":null}}
+{"getFishToLocal":{"firstCall":1626464148505,"allCalls":[1626464893224,1626464896075,1626464905824,1626476224949,1626476228594,1626476230349,1626476233055,1626476234824,1626476236163,1626476237415],"numberOfCalls":40,"averageCallSpan":11344191,"uncachedCallTime":365,"dataSize":0,"storedLocation":"local","cachedCallTime":1}}

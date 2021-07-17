@@ -4,6 +4,13 @@ import QueryInput from './QueryInput.jsx';
 import BarChart from './BarChart.jsx';
 import QueryResult from './QueryResult.jsx';
 
+import {
+  dryAPItext,
+  fishToLocalCacheText,
+  fishToRedisText,
+} from '../queryText';
+// import Intro from './Intro.jsx';
+
 class Demo extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +19,7 @@ class Demo extends Component {
       lineChartData: [],
       lineChartLabels: [],
       id: null,
+      apiQueryText: null,
       globalData: {
         totalNumberOfRequests: 0,
         totalTimeSaved: 0,
@@ -37,7 +45,7 @@ class Demo extends Component {
           uncachedCallTime: 0,
           cachedCallTime: 0,
           dataSize: 0,
-          storedLocation: "redis",
+          storedLocation: 'redis',
         },
       },
     };
@@ -45,7 +53,6 @@ class Demo extends Component {
     this.DryAPIRequest = this.DryAPIRequest.bind(this);
     this.APIToLocal = this.APIToLocal.bind(this);
     this.APIToRedis = this.APIToRedis.bind(this);
-    // this.updateLatency = this.updateLatency.bind(this);
   }
 
   //this function allows us to move data from API to local cache
@@ -60,10 +67,11 @@ class Demo extends Component {
         query: '{ getFishFromDatabase { Name Region Rate}}',
       }),
     })
-      .then((res) => res.json())
-      .then((jsonRes) => {
+      .then(res => res.json())
+      .then(jsonRes => {
         this.setState({
           items: jsonRes.data.getFishFromDatabase,
+          apiQueryText: dryAPItext,
         });
         this.JSONTest();
       });
@@ -81,9 +89,12 @@ class Demo extends Component {
         query: '{ getFishToLocal { Name Region Rate}}',
       }),
     })
-      .then((res) => res.json())
-      .then((jsonRes) => {
-        this.setState({ items: jsonRes.data.getFishToLocal });
+      .then(res => res.json())
+      .then(jsonRes => {
+        this.setState({
+          items: jsonRes.data.getFishToLocal,
+          apiQueryText: fishToLocalCacheText,
+        });
         this.JSONTest();
       });
   }
@@ -100,9 +111,12 @@ class Demo extends Component {
         query: '{ getFishToRedis { Name Region Rate}}',
       }),
     })
-      .then((res) => res.json())
-      .then((jsonRes) => {
-        this.setState({ items: jsonRes.data.getFishToRedis });
+      .then(res => res.json())
+      .then(jsonRes => {
+        this.setState({
+          items: jsonRes.data.getFishToRedis,
+          apiQueryText: redisQueryText,
+        });
         this.JSONTest();
       });
   }
@@ -114,8 +128,8 @@ class Demo extends Component {
         Accept: 'application/json',
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         const LCData = this.state.lineChartData.slice();
         const LCLabels = this.state.lineChartLabels.slice();
         LCLabels.push(this.state.globalData.totalNumberOfRequests);
@@ -128,7 +142,7 @@ class Demo extends Component {
           })
         );
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -140,12 +154,7 @@ class Demo extends Component {
             DryAPIRequest={this.DryAPIRequest}
             APIToLocal={this.APIToLocal}
             APIToRedis={this.APIToRedis}
-          />
-          <BarChart
-            globalData={this.state.globalData}
-            localData={this.state.localData}
-            lineChartLabels={this.state.lineChartLabels}
-            lineChartData={this.state.lineChartData}
+            sentQuery={this.state.apiQueryText}
           />
           <QueryResult items={this.state.items} />
           <BarChart
