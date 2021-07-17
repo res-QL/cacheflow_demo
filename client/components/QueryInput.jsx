@@ -28,9 +28,14 @@ class QueryInput extends React.Component {
         </div>
         <div className="Searchbar">
           <div className="Searchbar-Header">
-            <p className="Searchbar-Label">Searchbar</p>
-            <p className="instructions">paste code below</p>
+            <p className="Searchbar-Label">Queries</p>
+            <p className="instructions">
+              {/* {this.props.loaded ? {} : {}}paste code below */}
+            </p>
           </div>
+          <pre style={{ margin: '20px' }}>
+            <code>{this.props.sentQuery}</code>
+          </pre>
         </div>
         <div className="Terminal-Commands">
           <div className="Terminal-Header">

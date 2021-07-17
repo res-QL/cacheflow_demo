@@ -4,6 +4,13 @@ import QueryInput from './QueryInput.jsx';
 import BarChart from './BarChart.jsx';
 import QueryResult from './QueryResult.jsx';
 
+import {
+  dryAPItext,
+  fishToLocalCacheText,
+  fishToRedisText,
+} from '../queryText';
+// import Intro from './Intro.jsx';
+
 class Demo extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +19,7 @@ class Demo extends Component {
       lineChartData: [],
       lineChartLabels: [],
       id: null,
+      apiQueryText: null,
       globalData: {
         totalNumberOfRequests: 0,
         totalTimeSaved: 0,
@@ -63,6 +71,7 @@ class Demo extends Component {
       .then(jsonRes => {
         this.setState({
           items: jsonRes.data.getFishFromDatabase,
+          apiQueryText: dryAPItext,
         });
         this.JSONTest();
       });
@@ -82,7 +91,10 @@ class Demo extends Component {
     })
       .then(res => res.json())
       .then(jsonRes => {
-        this.setState({ items: jsonRes.data.getFishToLocal });
+        this.setState({
+          items: jsonRes.data.getFishToLocal,
+          apiQueryText: fishToLocalCacheText,
+        });
         this.JSONTest();
       });
   }
@@ -101,7 +113,10 @@ class Demo extends Component {
     })
       .then(res => res.json())
       .then(jsonRes => {
-        this.setState({ items: jsonRes.data.getFishToRedis });
+        this.setState({
+          items: jsonRes.data.getFishToRedis,
+          apiQueryText: redisQueryText,
+        });
         this.JSONTest();
       });
   }
@@ -139,6 +154,7 @@ class Demo extends Component {
             DryAPIRequest={this.DryAPIRequest}
             APIToLocal={this.APIToLocal}
             APIToRedis={this.APIToRedis}
+            sentQuery={this.state.apiQueryText}
           />
           <QueryResult items={this.state.items} />
           <BarChart

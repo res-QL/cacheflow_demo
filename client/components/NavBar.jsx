@@ -70,7 +70,7 @@ import React from 'react';
 */
 function NavBar() {
   return (
-    <div className="NavBar">
+    <div className="NavBar stickNav">
       <div id="title">
         <p>cacheflowQL</p>
         <div className="Abstract-Container">
