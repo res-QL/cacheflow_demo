@@ -147,24 +147,22 @@ class Demo extends Component {
 
   render() {
     return (
-      <div>
-        <div className="demoContainer">
-          <QueryInput
-            className="queryInput"
-            DryAPIRequest={this.DryAPIRequest}
-            APIToLocal={this.APIToLocal}
-            APIToRedis={this.APIToRedis}
-            sentQuery={this.state.apiQueryText}
-          />
-          <QueryResult items={this.state.items} />
-          <BarChart
-            className="barChart"
-            globalData={this.state.globalData}
-            localData={this.state.localData}
-            lineChartLabels={this.state.lineChartLabels}
-            lineChartData={this.state.lineChartData}
-          />
-        </div>
+      <div className="demoContainer">
+        <QueryInput
+          className="queryInput"
+          DryAPIRequest={this.DryAPIRequest}
+          APIToLocal={this.APIToLocal}
+          APIToRedis={this.APIToRedis}
+          sentQuery={this.state.apiQueryText}
+        />
+        <QueryResult items={this.state.items} />
+        <BarChart
+          className="barChart"
+          globalData={this.state.globalData}
+          localData={this.state.localData}
+          lineChartLabels={this.state.lineChartLabels}
+          lineChartData={this.state.lineChartData}
+        />
       </div>
     );
   }

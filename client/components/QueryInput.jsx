@@ -40,7 +40,7 @@ class QueryInput extends React.Component {
         <div className="Terminal-Commands">
           <div className="Terminal-Header">
             <p className="Terminal-Commands-Label">Terminal Commands</p>
-            <p className="instructions">paste code below</p>
+            <p className="instructions">Type commands below</p>
           </div>
           <div className="Terminal-Container">
             <XtermComponent className="Xterm" />
