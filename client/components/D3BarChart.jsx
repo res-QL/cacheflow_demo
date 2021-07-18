@@ -1,26 +1,52 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import * as d3 from "d3";
+// import React, { useState, useCallback, useEffect } from "react";
+// import ReactDOM from "react-dom";
+// import { csv, scaleBand, scaleLinear, max } from "d3";
 
-function drawChart(height, width) {
-  d3.select("#chart")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .style("border", "1px solid black")
-    .append("text")
-    .attr("fill", "green")
-    .attr("x", 50)
-    .attr("y", 50)
-    .text("Hello D3");
-}
+// const width = 960;
+// const height = 500;
 
-class D3BarChart extends Component {
-  constructor(props) {
-    super(props);
-  }
+// const App = () => {
+//   const [data, setData] = useState(null);
 
-  componentDidMount() {
-    drawChart();
-  }
-}
+//   /* useEffect(() => {
+//     const row = (d) => {
+//       d.Population = +d["2020"];
+//       return d;
+//     };
+//     csv(csvUrl, row).then((data) => {
+//       setData(data.slice(0, 10));
+//     });
+//   }, []); */
+
+//   /* if (!data) {
+//     return <pre>Loading...</pre>;
+//   } */
+
+//   console.log(data[0]);
+
+//   const yScale = scaleBand()
+//     .domain(data.map((d) => d.Country))
+//     .range([0, height]);
+
+//   const xScale = scaleLinear()
+//     .domain([0, max(data, (d) => d.Population)])
+//     .range([0, width]);
+
+//   return (
+//     <svg width={width} height={height}>
+//       {data.map((d) => (
+//         <rect
+//           key={d.Country}
+//           x={0}
+//           y={
+//             ("Local Uncached", "Local Cached", "Redis Uncached", "Redis Cached")
+//           }
+//           width={50000}
+//           height={yScale.bandwidth()}
+//         />
+//       ))}
+//     </svg>
+//   );
+// };
+
+// export default D3BarChart;

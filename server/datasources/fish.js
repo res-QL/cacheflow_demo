@@ -1,4 +1,8 @@
-const { RESTDataSource } = require("apollo-datasource-rest");
+const {
+  RESTDataSource
+} = require("apollo-datasource-rest");
+
+
 
 class fishAPI extends RESTDataSource {
   constructor() {
@@ -9,9 +13,9 @@ class fishAPI extends RESTDataSource {
   // write the async function to receive all fish
   async getAllFish() {
     const response = await this.get("species");
-    return Array.isArray(response)
-      ? response.map((fish) => this.fishReducer(fish))
-      : [];
+    return Array.isArray(response) ?
+      response.map((fish) => this.fishReducer(fish)) :
+      [];
   }
 
   // write the reducer function to store all of the needed fish properties

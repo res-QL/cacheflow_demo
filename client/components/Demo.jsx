@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import QueryInput from "./QueryInput.jsx";
 import BarChart from "./BarChart.jsx";
 import QueryResult from "./QueryResult.jsx";
+// import D3BarChart from "./D3BarChart.jsx";
 
 import {
   dryAPItext,
@@ -147,31 +148,28 @@ class Demo extends Component {
 
   render() {
     return (
-      <div>
-        <div className="demoContainer">
-          <QueryInput
-            className="queryInput"
-            DryAPIRequest={this.DryAPIRequest}
-            APIToLocal={this.APIToLocal}
-            APIToRedis={this.APIToRedis}
-            sentQuery={this.state.apiQueryText}
-          />
-          <QueryResult items={this.state.items} />
-          <BarChart
-            className="barChart"
-            globalData={this.state.globalData}
-            localData={this.state.localData}
-            lineChartLabels={this.state.lineChartLabels}
-            lineChartData={this.state.lineChartData}
-          />
-          <D3BarChart
-            className="barChart"
-            globalData={this.state.globalData}
-            localData={this.state.localData}
-            lineChartLabels={this.state.lineChartLabels}
-            lineChartData={this.state.lineChartData}
-          />
-        </div>
+      <div className="demoContainer">
+        <QueryInput
+          className="queryInput"
+          DryAPIRequest={this.DryAPIRequest}
+          APIToLocal={this.APIToLocal}
+          APIToRedis={this.APIToRedis}
+          sentQuery={this.state.apiQueryText}
+        />
+        <QueryResult items={this.state.items} />
+        <BarChart
+          className="barChart"
+          globalData={this.state.globalData}
+          localData={this.state.localData}
+          lineChartLabels={this.state.lineChartLabels}
+          lineChartData={this.state.lineChartData}
+        />
+        {/* <D3BarChart
+          globalData={this.state.globalData}
+          localData={this.state.localData}
+          lineChartLabels={this.state.lineChartLabels}
+          lineChartData={this.state.lineChartData}
+        /> */}
       </div>
     );
   }
