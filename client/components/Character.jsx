@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import CharacterCard from "./CharacterCard.jsx";
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import CharacterCard from './CharacterCard.jsx';
 
 class Character extends Component {
   constructor() {
@@ -14,49 +14,49 @@ class Character extends Component {
         <div className="CharacterContainer">
           <CharacterCard
             photo={
-              "https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg"
+              'https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg'
             }
-            name={"Eddie Wang"}
-            title={"Fullstack Engineer"}
-            linkedin={"https://www.linkedin.com/in/eddie-wang2/"}
-            github={"https://github.com/eddie246"}
+            name={'Eddie Wang'}
+            title={'Fullstack Engineer'}
+            linkedin={'https://www.linkedin.com/in/eddie-wang2/'}
+            github={'https://github.com/eddie246'}
           />
           <CharacterCard
             photo={
-              "https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg"
+              'https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg'
             }
-            name={"Ian Goodman"}
-            title={"Fullstack Engineer"}
-            linkedin={"https://www.linkedin.com/in/ian-elliot-goodman/"}
-            github={"https://github.com/IanElliot"}
+            name={'Ian Goodman'}
+            title={'Fullstack Engineer'}
+            linkedin={'https://www.linkedin.com/in/ian-elliot-goodman/'}
+            github={'https://github.com/IanElliot'}
           />
           <CharacterCard
             photo={
-              "https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg"
+              'https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg'
             }
-            name={"Tyler Holdren"}
-            title={"Fullstack Engineer"}
-            linkedin={"https://github.com/tyholdren"}
-            github={"https://github.com/tyholdren"}
+            name={'Tyler Holdren'}
+            title={'Fullstack Engineer'}
+            linkedin={'https://github.com/tyholdren'}
+            github={'https://github.com/tyholdren'}
           />
           <CharacterCard
             photo={
-              "https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg"
+              'https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg'
             }
-            name={"Walker Marsh"}
-            title={"Fullstack Engineer"}
-            linkedin={"https://www.linkedin.com/in/walkervemarsh/"}
-            github={"https://github.com/WalkerMarsh"}
+            name={'Walker Marsh'}
+            title={'Fullstack Engineer'}
+            linkedin={'https://www.linkedin.com/in/walkervemarsh/'}
+            github={'https://github.com/WalkerMarsh'}
           />
         </div>
         <center>
           <div id="footerEnd">
-            Product Development Accelerated by{" "}
+            Product Development Accelerated by{' '}
             <a className="footerAnchors" href="https://opensourcelabs.io/">
               OS Labs
-            </a>{" "}
+            </a>{' '}
             &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Issues or concerns? Report
-            them to our{" "}
+            them to our{' '}
             <a
               className="footerAnchors"
               href="https://github.com/oslabs-beta/cacheflow/issues"
