@@ -17,6 +17,7 @@
     "chart.js": "^3.4.0",
     "concurrently": "^6.2.0",
     "css-loader": "^5.2.6",
+    "d3": "^7.0.0",
     "dataloader": "^2.0.0",
     "dotenv": "^10.0.0",
     "enzyme-adapter-react-16": "^1.15.6",

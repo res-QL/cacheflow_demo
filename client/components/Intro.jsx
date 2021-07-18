@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 class Intro extends Component {
   constructor(props, stickyPos) {
     super(props);
 
     this.stickyPos = 0;
-    this.state = { copySuccess: '' };
+    this.state = { copySuccess: "" };
   }
 
   componentDidMount() {
     this.stickyPos =
-      document.querySelector('#introParent').offsetTop +
-      document.querySelector('#introParent').offsetHeight;
+      document.querySelector("#introParent").offsetTop +
+      document.querySelector("#introParent").offsetHeight;
 
     window.onscroll = function () {
       checkNavPos();
@@ -20,19 +20,18 @@ class Intro extends Component {
 
     const checkNavPos = () => {
       if (window.pageYOffset >= this.stickyPos) {
-        console.log('fire');
-        document.querySelector('.NavBar').classList.add('navFade');
+        document.querySelector(".NavBar").classList.add("navFade");
       } else {
-        document.querySelector('.NavBar').classList.remove('navFade');
+        document.querySelector(".NavBar").classList.remove("navFade");
       }
     };
   }
-  copyToClipboard = e => {
-    const textField = document.createElement('textarea');
-    textField.innerText = 'npm install cacheflowql';
+  copyToClipboard = (e) => {
+    const textField = document.createElement("textarea");
+    textField.innerText = "npm install cacheflowql";
     document.body.appendChild(textField);
     textField.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     textField.remove();
   };
 
@@ -58,7 +57,7 @@ class Intro extends Component {
               Copy and Paste to Terminal
             </button>
             <a href="https://google.com" target="_blank">
-              <button>Read our Medium Article!</button>
+              <button>Read our Medium Article</button>
             </a>
           </div>
         </div>

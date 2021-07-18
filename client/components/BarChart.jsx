@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Bar, Line } from 'react-chartjs-2';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { Bar, Line } from "react-chartjs-2";
 
 class BarChart extends Component {
   constructor(props) {
@@ -12,10 +12,10 @@ class BarChart extends Component {
       labels: this.props.lineChartLabels,
       datasets: [
         {
-          label: 'Total Time Saved',
+          label: "Total Time Saved",
           fill: false,
-          backgroundColor: 'rgba(75,192,192,1)',
-          borderColor: 'rgba(0,0,0,1)',
+          backgroundColor: "rgba(75,192,192,1)",
+          borderColor: "rgba(0,0,0,1)",
           borderWidth: 2,
           data: this.props.lineChartData,
         },
@@ -51,7 +51,7 @@ class BarChart extends Component {
 
             datasets: [
               {
-                label: 'Latency',
+                label: "Latency",
                 data: [
                   this.props.localData.getFishToLocal
                     ? this.props.localData.getFishToLocal.uncachedCallTime
@@ -67,10 +67,10 @@ class BarChart extends Component {
                     : 0,
                 ],
                 backgroundColor: [
-                  'rgba(53,17,163, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
+                  "rgba(53,17,163, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(255, 206, 86, 0.2)",
+                  "rgba(255, 206, 86, 0.2)",
                 ],
               },
             ],
@@ -83,12 +83,13 @@ class BarChart extends Component {
             options={{
               title: {
                 display: true,
-                text: 'Number of Requests',
+                text: "Number of Requests",
                 fontSize: 20,
+                height: "600px",
               },
               legend: {
                 display: true,
-                position: 'right',
+                position: "right",
               },
             }}
           />
