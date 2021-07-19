@@ -127,4 +127,5 @@ If you want to see data about all data cached using the cache function input 'Gl
 
 <img width="756" alt="Screen Shot 2021-07-19 at 12 10 06 PM" src="https://user-images.githubusercontent.com/81332301/126205515-5a418050-c218-4f3d-a0be-6530d5d8233f.png">
 
-
+## Next Steps
+We’re off to a great start but are always looking to add new features!  Send your comments, questions, and suggestions to cacheflowql@gmail.com or simply fork our repo, checkout to a feature branch and get to work improving our product. Happy Caching!
