@@ -129,3 +129,10 @@ If you want to see data about all data cached using the cache function input 'Gl
 
 ## Next Steps
 We’re off to a great start but are always looking to add new features!  Send your comments, questions, and suggestions to cacheflowql@gmail.com or simply fork our repo, checkout to a feature branch and get to work improving our product. Happy Caching!
+
+
+
+
+
+
+cacheflowQL is a beta product developed under OSLabs
