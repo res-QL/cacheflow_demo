@@ -10,7 +10,7 @@ CacheflowQL is for any developer looking for a lightweight way to cache data on 
 
 ## Installing cacheflowQL
 
-Download our NPM Package [Here](https://expressjs.com/en/)
+Download our NPM Package [Here](https://www.npmjs.com/package/cacheflowql)
 
 1. Install your npm dependencies: run `npm install cacheflowql` in your terminal
 
