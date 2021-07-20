@@ -67,5 +67,9 @@
     "url": "https://github.com/res-QL/demo/issues"
   },
   "homepage": "https://github.com/res-QL/demo#readme",
-  "keywords": ["GraphQL", "caching", "redis"]
+  "keywords": [
+    "GraphQL",
+    "caching",
+    "redis"
+  ]
 }

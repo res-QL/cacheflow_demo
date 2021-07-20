@@ -78,11 +78,11 @@ configObj = {
 
 ### location
 
-- Set cache location; either local or on redis. Local and/or redis must be initiated using initCache function if either is being used.
+- Set cache location; either local or redis. Local and/or redis must be initiated using initCache function if either is being used.
 
 ### maxAge
 
-- How long data will remain in local cache. After maxAge (in seconds) is passed, data is marked as expired and will be deleted.
+- How long data will remain in local cache. After maxAge in seconds have elapsed, data is marked as expired and will be deleted.
 
 ### smartCache
 
@@ -90,7 +90,7 @@ configObj = {
 
 ### Mutations
 
-- If you want the cache function to work with mutations you need to wrap mutation resolvers in cache function as well. In the cache config object include a parameter 'mutate' whose value is equal to the name of the query resolver you want to have update.
+- If you want the cache function to update your cache when data is mutated mutation resolvers must be wrapped in cache function as well. In the cache config object include a parameter 'mutate' whose value is equal to the name of the query resolver whose data will be changed.
 
 ```js
 resolver(parent, args, context, info) {
@@ -108,7 +108,7 @@ resolver(parent, args, context, info) {
 
 The other two parameters in the cache function are info and a callback.
 
-1. The info parameter is the info parameter from the resolver itself
+1. The info parameter is the info parameter from the resolver initialization itself
 2. The callback parameter will be whatever was in your resolver before using cacheflowQL
 
 Simply return the call to cache with your three input parameters and you are set to cache!
@@ -122,17 +122,12 @@ return cache(cacheConfigObject, info, callback);
 To run the terminal commands run `node node_modules/cacheflowql/metricsTerminal.js`. The terminal will then ask whether you want to view local or global metrics.
 If you want to see data about all data cached using the cache function input 'Global Metrics.' If you want to see data about a specific resolver simply enter the name of the resolver.
 
-
 <img width="754" alt="Screen Shot 2021-07-19 at 12 04 50 PM" src="https://user-images.githubusercontent.com/81332301/126205489-fb5ad800-0315-4f35-b5bf-d649b9b3d1ed.png">
 
 <img width="756" alt="Screen Shot 2021-07-19 at 12 10 06 PM" src="https://user-images.githubusercontent.com/81332301/126205515-5a418050-c218-4f3d-a0be-6530d5d8233f.png">
 
 ## Next Steps
-We’re off to a great start but are always looking to add new features!  Send your comments, questions, and suggestions to cacheflowql@gmail.com or simply fork our repo, checkout to a feature branch and get to work improving our product. Happy Caching!
 
-
-
-
-
+We’re off to a great start but are always looking to add new features! Send your comments, questions, and suggestions to cacheflowql@gmail.com or simply fork our repo, checkout to a feature branch and get to work improving our product. Happy Caching!
 
 cacheflowQL is a beta product developed under OSLabs

@@ -183,10 +183,7 @@ b {
   align-items: center;
 }
 
-.subIconGroup {
-  width: fit-content;
-  float: right;
-}
+
 
 /* .Icon .Grouping:last-child {
   margin-right: 0px;
@@ -261,8 +258,8 @@ b {
   border-radius: 25px;
   color: white;
   margin: 5px 10px;
-  padding: 10px;
-  font-size: 0.8rem;
+  padding: 10px 14px 10px 14px;
+  font-size: 1rem;
 }
 
 #introParent button:hover {
@@ -273,11 +270,22 @@ b {
 }
 
 .downloadPkg {
-  padding: 12px;
+  padding: 12px 18px 12px 18px;
   width: fit-content;
+  background-color: rgba(80, 91, 228, 255);
+  border: 1px solid white; 
+  border-radius: 25px;
+  color: rgb(255, 255, 255);
+}
+
+.downloadPkg:hover {
   background-color: white;
-  /* background-color: rgba(80, 91, 228, 255); */
-  /* background-color: transparent; */
+  cursor: pointer;
+  color:#505be4;
+}
+
+.downloadPkg:hover svg {
+  fill: #505be4;
 }
 
 #downloadNpmTxt {
@@ -299,13 +307,10 @@ b {
   width: fit-content;
 }
 
-.bi-clipboard {
-  color: red;
-}
-
 #copyLogo:hover {
   transform: scale(1.2);
-  transition: all 0.1s
+  transition: all 0.1s;
+  fill: #505be4; 
 }
 
 /* Main Container */
@@ -373,16 +378,23 @@ button:hover {
 
 .scrollFunction {
   position: relative;
-  top: 0;
+  top: -3px;
   color: #6b727e;
   margin-right: 40px;
   border-bottom: 1px solid white;
+  /* float: right; */
 }
 
 .scrollFunction:hover {
   cursor: pointer;
   border-bottom: 1px solid rgb(53, 17, 163);
   transition: all 0.2s;
+}
+
+.subIconGroup {
+  width: fit-content;
+  float: right;
+  height: 20px;
 }
 
 .BackTopBtn {
@@ -402,6 +414,7 @@ button:hover {
   transform: translateY(-10px);
   transition: all 0.2s;
 }
+
 
 @media (max-width:1600px) {
   div.Terminal-Commands {
@@ -506,7 +519,7 @@ button:hover {
 .Graph-Container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: space-around;
   margin-top: 50px;
   width: 30%;

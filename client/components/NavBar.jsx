@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /*
 <div
@@ -90,13 +90,13 @@ h           ref="#" style={{ marginRight: '40px' }}>
 
 function NavBar() {
   function scrollToDemo() {
-    const demoScroll = document.querySelector(".demoContainer");
-    demoScroll.scrollIntoView({ behavior: "smooth" });
+    const demoScroll = document.querySelector('.demoContainer');
+    demoScroll.scrollIntoView({ behavior: 'smooth' });
   }
 
   function scrollToTeam() {
-    const demoScroll = document.querySelector(".footer");
-    demoScroll.scrollIntoView({ behavior: "smooth" });
+    const demoScroll = document.querySelector('.footer');
+    demoScroll.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
