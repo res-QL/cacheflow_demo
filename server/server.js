@@ -1,4 +1,7 @@
-const { ApolloServer, graphqlExpress } = require('apollo-server-express');
+const {
+  ApolloServer,
+  graphqlExpress
+} = require('apollo-server-express');
 const express = require('express');
 // const bodyParser = require("body-parser");
 const typeDefs = require("./typeDefs");
@@ -29,13 +32,16 @@ app.get('/', (req, res) => {
 // });
 
 app.get('/getMetrics', (req, res) => {
-  const globalData = fs.readFileSync('globalMetrics.json', 'utf-8');
+  const globalData = fs.readFileSync('./cacheflowSrc/globalMetrics.json', 'utf-8');
   const globalDataJson = JSON.parse(globalData);
-  const localData = fs.readFileSync('localMetricsStorage.json', 'utf-8');
+  const localData = fs.readFileSync('./cacheflowSrc/localMetricsStorage.json', 'utf-8');
   const localDataJson = JSON.parse(localData);
   res
     .status(200)
-    .send({ globalData: globalDataJson, localData: localDataJson });
+    .send({
+      globalData: globalDataJson,
+      localData: localDataJson
+    });
 });
 
 app.post('/terminal', terminalMiddleware, (req, res) => {
@@ -47,14 +53,14 @@ function terminalMiddleware(req, res, next) {
 
   if (req.body.message === 'Global Metrics') {
     console.log('Requesting global metrics');
-    const globalData = fs.readFileSync('globalMetrics.json', 'utf-8');
+    const globalData = fs.readFileSync('./cacheflowSrc/globalMetrics.json', 'utf-8');
 
     res.locals.metrics = {
       resolver: 'Global',
       data: JSON.parse(globalData),
     };
   } else {
-    const localData = fs.readFileSync('localMetricsStorage.json', 'utf-8');
+    const localData = fs.readFileSync('./cacheflowSrc/localMetricsStorage.json', 'utf-8');
     const localDataJson = JSON.parse(localData);
 
     res.locals.metrics = {
