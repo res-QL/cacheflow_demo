@@ -94,6 +94,7 @@ class Demo extends Component {
     })
       .then((res) => res.json())
       .then((jsonRes) => {
+        console.log(jsonRes.data.getFishToLocal)
         this.setState({
           items: jsonRes.data.getFishToLocal,
           apiQueryText: fishToLocalCacheText,
@@ -119,7 +120,7 @@ class Demo extends Component {
       .then((jsonRes) => {
         this.setState({
           items: jsonRes.data.getFishToRedis,
-          apiQueryText: redisQueryText,
+          apiQueryText: fishToRedisText,
         });
         this.JSONTest();
       });

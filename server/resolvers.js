@@ -105,7 +105,7 @@ module.exports = {
       dataSources
     }, info) => {
       return cache({
-        location: "redis",
+        location: "local",
         maxAge: 10
       }, info, async () => {
         try {
