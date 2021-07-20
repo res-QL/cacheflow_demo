@@ -44,18 +44,19 @@ class Intro extends Component {
     return (
       <div id="introParent">
         <div className="centerText">
-          <h1>cacheflow</h1>
           <p className="introTitle">
-            The cacheflowQL library is a lightweight middleware package that
-            allows smart caching on GraphQL servers.
+            ...a lightweight npm package providing developers insight into
+            GraphQL queries and metrics concerning cached data
           </p>
-          {/* <p className="introParagraph">
-            Current caching solutions are inflexible as they only offer users
-            the ability to cache data, in lieu of requesting it from their
-            respective API or database. CacheflowQL gives developers more
-            control, providing them the ability to specify thresholds upon which
-            data can be cached to their specified locations.
-          </p> */}
+          {
+            <p className="introParagraph">
+              Current caching solutions are inflexible as they only offer users
+              the ability to cache data, in lieu of requesting it from their
+              respective API or database. CacheflowQL gives developers more
+              control, providing them the ability to specify thresholds upon
+              which data can be cached to their specified locations.
+            </p>
+          }
 
           <div id="downloadNpmTxt">Download the NPM Package</div>
           <center id="downloadContainer">
@@ -69,7 +70,7 @@ class Intro extends Component {
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
-                fill="#505be4"
+                // fill="#505be4"
                 class="bi bi-clipboard"
                 viewBox="0 0 16 16"
               >

@@ -1,8 +1,5 @@
 {
   "ignore": [
-    "localStorage.json",
-    "localMetricsStorage.json",
-    "globalMetrics.json",
-    "README"
+    "./cacheflowSrc"
   ]
 }

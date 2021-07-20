@@ -3,7 +3,7 @@ const {
   graphqlExpress
 } = require('apollo-server-express');
 const express = require('express');
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
 const path = require("path");
@@ -23,13 +23,9 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-// app.get("/metrics/global", async (req, res) => {
-//   const data = await fs.promises.readFile(
-//     path.join(__dirname, "../localMetricsStorage.json")
-//   );
-//   console.log(data.toString());
-//   res.status(200).json(JSON.parse(data.toString()));
-// });
+app.get('/assets/cacheflowLogo.svg', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './assets/cacheflowLogo.svg'));
+});
 
 app.get('/getMetrics', (req, res) => {
   const globalData = fs.readFileSync('./cacheflowSrc/globalMetrics.json', 'utf-8');
@@ -86,9 +82,6 @@ const server = new ApolloServer({
 server.applyMiddleware({
   app,
 });
-
-// bodyParser is needed just for POST.
-// app.use("/graphql", bodyParser.json());
 
 app.listen(PORT, () => {
   console.log(`server is running on localhost 3000${server.graphqlPath}`);

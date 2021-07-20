@@ -14,7 +14,7 @@ class Character extends Component {
         <div className="CharacterContainer">
           <CharacterCard
             photo={
-              "https://pbs.twimg.com/profile_images/2930975978/93e5eeb2a2fcae8fb305d588805a774c.jpeg"
+              "https://avatars.githubusercontent.com/u/72237708?s=400&u=b24f5605c36c74b80afa342c5e722ba8106b2486&v=4"
             }
             name={"Eddie Wang"}
             title={"Fullstack Engineer"}
@@ -38,7 +38,9 @@ class Character extends Component {
             github={"https://github.com/tyholdren"}
           />
           <CharacterCard
-            photo={"https://avatars.githubusercontent.com/u/81332301?v=4"}
+            photo={
+              "https://avatars.githubusercontent.com/u/81332301?s=400&u=8a4885ba8e79f83684a7a989876d799055bc3d02&v=4"
+            }
             name={"Walker Marsh"}
             title={"Fullstack Engineer"}
             linkedin={"https://www.linkedin.com/in/walkervemarsh/"}
