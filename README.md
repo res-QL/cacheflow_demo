@@ -10,7 +10,7 @@ CacheflowQL is for any developer looking for a lightweight way to cache data on 
 
 ## Installing cacheflowQL
 
-Download our NPM Package [Here](https://expressjs.com/en/)
+Download our NPM Package [Here](https://www.npmjs.com/package/cacheflowql)
 
 1. Install your npm dependencies: run `npm install cacheflowql` in your terminal
 
@@ -78,11 +78,11 @@ configObj = {
 
 ### location
 
-- Set cache location; either local or on redis. Local and/or redis must be initiated using initCache function if either is being used.
+- Set cache location; either local or redis. Local and/or redis must be initiated using initCache function if either is being used.
 
 ### maxAge
 
-- How long data will remain in local cache. After maxAge (in seconds) is passed, data is marked as expired and will be deleted.
+- How long data will remain in local cache. After maxAge in seconds have elapsed, data is marked as expired and will be deleted.
 
 ### smartCache
 
@@ -90,7 +90,7 @@ configObj = {
 
 ### Mutations
 
-- If you want the cache function to work with mutations you need to wrap mutation resolvers in cache function as well. In the cache config object include a parameter 'mutate' whose value is equal to the name of the query resolver you want to have update.
+- If you want the cache function to update your cache when data is mutated mutation resolvers must be wrapped in cache function as well. In the cache config object include a parameter 'mutate' whose value is equal to the name of the query resolver whose data will be changed.
 
 ```js
 resolver(parent, args, context, info) {
@@ -108,7 +108,7 @@ resolver(parent, args, context, info) {
 
 The other two parameters in the cache function are info and a callback.
 
-1. The info parameter is the info parameter from the resolver itself
+1. The info parameter is the info parameter from the resolver initialization itself
 2. The callback parameter will be whatever was in your resolver before using cacheflowQL
 
 Simply return the call to cache with your three input parameters and you are set to cache!
@@ -119,5 +119,5 @@ return cache(cacheConfigObject, info, callback);
 
 ## Terminal Commands
 
-To run the terminal commands run node node_modules/cacheflowql/metricsTerminal.js. The terminal will then ask whether you want to view local or global metrics.
-If you want to see data about all data cached using the cache function input 'Global Metrics.' If you want to see data about a specific resolver simply enter the name of the resolver.
+To run the terminal commands run "node node_modules/cacheflowql/metricsTerminal.js" in your local terminal. The terminal will then ask whether you want to view local or global metrics.
+If you want to see data about all data cached using the cache function input 'Global Metrics.' If you want to see data about a specific resolver simply enter the name of the resolver, eg. user as seen below.
