@@ -1,34 +1,38 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { XTerm } from 'xterm-for-react';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { XTerm } from "xterm-for-react";
+
+// Our Xterm component allows the users of our demo
+// to access the metrics via our terminal, which is
+// being rendered via Xterm on our page
 
 function XtermComponent() {
   const xtermRef = React.useRef(null);
 
-  let curr_line = '';
+  let curr_line = "";
 
   React.useEffect(() => {
     // You can call any method in XTerm.js by using 'xterm xtermRef.current.terminal.[What you want to call]
     xtermRef.current.terminal.writeln(
-      '\nEnter your desired metrics:\r\n\n --> Global Metrics\r\n --> Name of Resolver\r\n\n===================================================\n'
+      "\nEnter your desired metrics:\r\n\n --> Global Metrics\r\n --> Name of Resolver\r\n\n===================================================\n"
     );
 
     xtermRef.current.terminal.onKey((key, ev) => {
-      if (key.key == '\r') {
+      if (key.key == "\r") {
         console.log(curr_line);
 
-        fetch('/terminal', {
-          method: 'POST',
+        fetch("/terminal", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             message: curr_line,
           }),
         })
-          .then(res => res.json())
-          .then(D => {
-            if (D.resolver === 'Global') {
+          .then((res) => res.json())
+          .then((D) => {
+            if (D.resolver === "Global") {
               xtermRef.current.terminal.write(
                 `\n
               \rHere are the global metrics:\n
@@ -66,11 +70,11 @@ function XtermComponent() {
             }
           });
 
-        curr_line = '';
-        xtermRef.current.terminal.write('\r\n');
-      } else if (key.domEvent.key === 'Backspace') {
+        curr_line = "";
+        xtermRef.current.terminal.write("\r\n");
+      } else if (key.domEvent.key === "Backspace") {
         curr_line = curr_line.slice(0, -1);
-        xtermRef.current.terminal.write('\b \b');
+        xtermRef.current.terminal.write("\b \b");
       } else {
         xtermRef.current.terminal.write(key.key);
         curr_line += key.key;

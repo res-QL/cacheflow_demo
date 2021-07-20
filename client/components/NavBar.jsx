@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /*
 <div
@@ -85,7 +85,18 @@ import React from 'react';
           </a>
         </div>
 */
+
 function NavBar() {
+  function scrollToDemo() {
+    const demoScroll = document.querySelector(".demoContainer");
+    demoScroll.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function scrollToTeam() {
+    const demoScroll = document.querySelector(".footer");
+    demoScroll.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <div className="NavBar stickNav">
       <div id="title">
@@ -99,6 +110,12 @@ function NavBar() {
       </div>
       <div className="Icons">
         <div className="subIconGroup">
+          <div className="scrollFunction Icon Grouping" onClick={scrollToDemo}>
+            Demo
+          </div>
+          <div className="scrollFunction Icon Grouping" onClick={scrollToTeam}>
+            Meet the Team
+          </div>
           <div className="Icon Grouping">
             <svg
               xmlns="http://www.w3.org/2000/svg"

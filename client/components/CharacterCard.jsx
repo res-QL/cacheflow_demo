@@ -7,6 +7,7 @@ class CharacterCard extends Component {
   }
 
   render() {
+    console.log(this.props.photo);
     return (
       <div className="characterCard" id={this.props.name}>
         <img className="photo" src={this.props.photo} />

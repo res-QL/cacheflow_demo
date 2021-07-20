@@ -56,7 +56,8 @@ class Demo extends Component {
     this.APIToRedis = this.APIToRedis.bind(this);
   }
 
-  //this function allows us to move data from API to local cache
+  // This function allows us to move data from API to local cache
+
   DryAPIRequest() {
     fetch("/graphql", {
       method: "POST",
@@ -78,7 +79,8 @@ class Demo extends Component {
       });
   }
 
-  //this function allows us to move data from API to local cache
+  // This function allows us to move data from API to local cache
+
   APIToLocal() {
     fetch("/graphql", {
       method: "POST",
@@ -100,7 +102,8 @@ class Demo extends Component {
       });
   }
 
-  //this function allows us to move data from API to Redis
+  //This function allows us to move data from API to Redis
+
   APIToRedis() {
     fetch("/graphql", {
       method: "POST",
@@ -121,6 +124,9 @@ class Demo extends Component {
         this.JSONTest();
       });
   }
+
+  // This function updates our metrics in state so that
+  // we can display them in our demo
 
   JSONTest() {
     fetch("/getMetrics", {
@@ -148,6 +154,10 @@ class Demo extends Component {
 
   render() {
     return (
+      // This renders the three different parts of our demo.
+      // The input section, the results section, and the
+      // visual display section.
+
       <div className="demoContainer">
         <QueryInput
           className="queryInput"

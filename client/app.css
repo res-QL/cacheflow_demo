@@ -27,8 +27,10 @@ a {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 900px;
+  width: 1000px;
 }
+
+
 
 /* Navigation Bar */
 .NavBar {
@@ -188,7 +190,7 @@ b {
 
 .Abstract-Container {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 175%;
   text-align: center;
   margin: auto;
@@ -227,11 +229,11 @@ b {
 }
 
 .introTitle {
-  font-size: 31px;
+  font-size: 35px;
 }
 
 .introParagraph {
-  font-size: 16px;
+  font-size: 18px;
   word-wrap: break-word;
 }
 
@@ -264,6 +266,36 @@ b {
   background-color: white;
   color: rgb(53, 17, 163);
   transition: all 0.2s;
+}
+
+.downloadPkg {
+  padding: 12px;
+  width: fit-content;
+  background-color: white;
+}
+
+#downloadNpmTxt {
+  margin-bottom: 10px;
+  color: white
+}
+
+#npmInstall {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#downloadContainer {
+  padding: 18px;
+}
+
+#clipboardLogo {
+  font-size: 30px;
+  height: fit-content;
+  width: fit-content;
+}
+
+#copyLogo:hover {
+  transform: scale(1.2);
+  transition: all 0.1s
 }
 
 /* Main Container */
@@ -327,6 +359,36 @@ button:hover {
   display: flex;
   flex-direction: column;
   height: 325px;
+}
+
+.scrollFunction {
+  color: #6b727e;
+  margin-right: 40px;
+  border-bottom: 1px solid white;
+}
+
+.scrollFunction:hover {
+  cursor: pointer;
+  border-bottom: 1px solid rgb(53, 17, 163);
+  transition: all 0.2s;
+}
+
+.BackTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: min-content;
+
+  transition: all 0.2s;
+  background-color: white;
+  border-radius: 20px;
+  border: solid #ffffff 1px;
+}
+
+.BackTopBtn:hover {
+  transform: translateY(-10px);
+  transition: all 0.2s;
 }
 
 @media (max-width:1600px) {
