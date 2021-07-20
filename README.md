@@ -119,5 +119,15 @@ return cache(cacheConfigObject, info, callback);
 
 ## Terminal Commands
 
-To run the terminal commands run "node node_modules/cacheflowql/metricsTerminal.js" in your local terminal. The terminal will then ask whether you want to view local or global metrics.
-If you want to see data about all data cached using the cache function input 'Global Metrics.' If you want to see data about a specific resolver simply enter the name of the resolver, eg. user as seen below.
+To run the terminal commands run `node node_modules/cacheflowql/metricsTerminal.js`. The terminal will then ask whether you want to view local or global metrics.
+If you want to see data about all data cached using the cache function input 'Global Metrics.' If you want to see data about a specific resolver simply enter the name of the resolver.
+
+<img width="754" alt="Screen Shot 2021-07-19 at 12 04 50 PM" src="https://user-images.githubusercontent.com/81332301/126205489-fb5ad800-0315-4f35-b5bf-d649b9b3d1ed.png">
+
+<img width="756" alt="Screen Shot 2021-07-19 at 12 10 06 PM" src="https://user-images.githubusercontent.com/81332301/126205515-5a418050-c218-4f3d-a0be-6530d5d8233f.png">
+
+## Next Steps
+
+We’re off to a great start but are always looking to add new features! Send your comments, questions, and suggestions to cacheflowql@gmail.com or simply fork our repo, checkout to a feature branch and get to work improving our product. Happy Caching!
+
+cacheflowQL is a beta product developed under OSLabs

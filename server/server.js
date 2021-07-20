@@ -1,6 +1,9 @@
-const { ApolloServer, graphqlExpress } = require('apollo-server-express');
+const {
+  ApolloServer,
+  graphqlExpress
+} = require('apollo-server-express');
 const express = require('express');
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
 const path = require("path");
@@ -20,22 +23,21 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-// app.get("/metrics/global", async (req, res) => {
-//   const data = await fs.promises.readFile(
-//     path.join(__dirname, "../localMetricsStorage.json")
-//   );
-//   console.log(data.toString());
-//   res.status(200).json(JSON.parse(data.toString()));
-// });
+app.get('/assets/cacheflowLogo.svg', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, './assets/cacheflowLogo.svg'));
+});
 
 app.get('/getMetrics', (req, res) => {
-  const globalData = fs.readFileSync('globalMetrics.json', 'utf-8');
+  const globalData = fs.readFileSync('./cacheflowSrc/globalMetrics.json', 'utf-8');
   const globalDataJson = JSON.parse(globalData);
-  const localData = fs.readFileSync('localMetricsStorage.json', 'utf-8');
+  const localData = fs.readFileSync('./cacheflowSrc/localMetricsStorage.json', 'utf-8');
   const localDataJson = JSON.parse(localData);
   res
     .status(200)
-    .send({ globalData: globalDataJson, localData: localDataJson });
+    .send({
+      globalData: globalDataJson,
+      localData: localDataJson
+    });
 });
 
 app.post('/terminal', terminalMiddleware, (req, res) => {
@@ -47,14 +49,14 @@ function terminalMiddleware(req, res, next) {
 
   if (req.body.message === 'Global Metrics') {
     console.log('Requesting global metrics');
-    const globalData = fs.readFileSync('globalMetrics.json', 'utf-8');
+    const globalData = fs.readFileSync('./cacheflowSrc/globalMetrics.json', 'utf-8');
 
     res.locals.metrics = {
       resolver: 'Global',
       data: JSON.parse(globalData),
     };
   } else {
-    const localData = fs.readFileSync('localMetricsStorage.json', 'utf-8');
+    const localData = fs.readFileSync('./cacheflowSrc/localMetricsStorage.json', 'utf-8');
     const localDataJson = JSON.parse(localData);
 
     res.locals.metrics = {
@@ -80,9 +82,6 @@ const server = new ApolloServer({
 server.applyMiddleware({
   app,
 });
-
-// bodyParser is needed just for POST.
-// app.use("/graphql", bodyParser.json());
 
 app.listen(PORT, () => {
   console.log(`server is running on localhost 3000${server.graphqlPath}`);

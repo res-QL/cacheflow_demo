@@ -49,13 +49,15 @@ import React from 'react';
           </span>
         </a>
 
-        <a href="#" style={{ marginRight: '40px' }}>
-          <span
-            className="hvr-underline-from-center"
-            style={{ fontSize: '1.5rem' }}
-          >
-            <img
-              style={{
+        <a 
+h           ref="#" style={{ marginRight: '40px' }}>
+          <s  pan
+              className="hvr-underline-from-center"
+              style={{ fontSize: '1.5rem' }}
+          >  
+             which <img
+                
+         style={{
                 width: '22px',
                 position: 'relative',
                 top: '1px',
@@ -85,20 +87,38 @@ import React from 'react';
           </a>
         </div>
 */
+
 function NavBar() {
+  function scrollToDemo() {
+    const demoScroll = document.querySelector('.demoContainer');
+    demoScroll.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function scrollToTeam() {
+    const demoScroll = document.querySelector('.footer');
+    demoScroll.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
     <div className="NavBar stickNav">
+      <img src="assets/cacheflowLogo.svg" />
       <div id="title">
         <p>cacheflowQL</p>
       </div>
-      <div className="Abstract-Container">
+      {/* <div className="Abstract-Container">
         <p>
           ...a lightweight npm package providing developers insight into GraphQL
           queries and metrics concerning cached data
         </p>
-      </div>
+      </div> */}
       <div className="Icons">
         <div className="subIconGroup">
+          <div className="scrollFunction Icon Grouping" onClick={scrollToDemo}>
+            Demo
+          </div>
+          <div className="scrollFunction Icon Grouping" onClick={scrollToTeam}>
+            Meet the Team
+          </div>
           <div className="Icon Grouping">
             <svg
               xmlns="http://www.w3.org/2000/svg"
