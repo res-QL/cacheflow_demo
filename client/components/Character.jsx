@@ -34,7 +34,7 @@ class Character extends Component {
             photo={"https://avatars.githubusercontent.com/u/77170645?v=4"}
             name={"Tyler Holdren"}
             title={"Fullstack Engineer"}
-            linkedin={"https://github.com/tyholdren"}
+            linkedin={"https://www.linkedin.com/in/tyler-holdren/"}
             github={"https://github.com/tyholdren"}
           />
           <CharacterCard

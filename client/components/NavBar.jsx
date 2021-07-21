@@ -1,92 +1,5 @@
 import React from 'react';
 
-/*
-<div
-        className="NavBarLinks"
-        style={{
-          display: 'inline-block',
-          fontSize: '2.8rem',
-          marginLeft: '10px',
-        }}
-      ></div>
-      <div
-        className="NavBarLinks"
-        style={{ display: 'inline-block', right: '0px' }}
-      >
-        <a href="#" style={{ marginRight: '40px' }}>
-          <span
-            className="hvr-underline-from-center"
-            style={{ fontSize: '1.5rem' }}
-          >
-            <img
-              style={{
-                width: '60px',
-                position: 'relative',
-                top: '5px',
-                marginRight: '10px',
-              }}
-              src="https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg"
-            />
-            npm
-          </span>
-        </a>
-
-        <a href="#" style={{ marginRight: '40px' }}>
-          <span
-            className="hvr-underline-from-center"
-            style={{ fontSize: '1.5rem' }}
-          >
-            <img
-              style={{
-                width: '25px',
-                position: 'relative',
-                top: '4px',
-                marginRight: '10px',
-              }}
-              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-            />
-            GitHub
-          </span>
-        </a>
-
-        <a 
-h           ref="#" style={{ marginRight: '40px' }}>
-          <s  pan
-              className="hvr-underline-from-center"
-              style={{ fontSize: '1.5rem' }}
-          >  
-             which <img
-                
-         style={{
-                width: '22px',
-                position: 'relative',
-                top: '1px',
-                marginRight: '10px',
-              }}
-              src="https://www.svgrepo.com/show/110227/linkedin-big-logo.svg"
-            />
-            LinkedIn
-          </span>
-        </a>
-      </div>
-
-      NPM SVG AND LINK: 
-      <div className="Icon Grouping">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="red"
-            class="bi bi-npm"
-            viewBox="0 0 16 16"
-          >
-            <path d="M0 0v16h16v-16h-16zM13 13h-2v-8h-3v8h-5v-10h10v10z" />
-          </svg>
-          <a href="https://www.npmjs.com/package/cacheflowql" id="npm">
-            npm
-          </a>
-        </div>
-*/
 
 function NavBar() {
   function scrollToDemo() {
@@ -105,12 +18,6 @@ function NavBar() {
       <div id='title'>
         <p>cacheflowQL</p>
       </div>
-      {/* <div className="Abstract-Container">
-        <p>
-          ...a lightweight npm package providing developers insight into GraphQL
-          queries and metrics concerning cached data
-        </p>
-      </div> */}
       <div className='Icons'>
         <div className='subIconGroup'>
           <div className='scrollFunction Icon Grouping' onClick={scrollToDemo}>
@@ -144,7 +51,7 @@ function NavBar() {
               <path d='M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z' />
             </svg>
             <a
-              href='https://www.linkedin.com/in/cacheflow-ql-55874b217/'
+              href='https://www.linkedin.com/company/cacheflowql/'
               id='linkedin'
             >
               LinkedIn
