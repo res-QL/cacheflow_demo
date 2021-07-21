@@ -14,7 +14,7 @@ function NavBar() {
 
   return (
     <div className='NavBar stickNav'>
-      <img src='assets/cacheflowLogo.svg' />
+      <img src='assets/cacheflowLogo.svg' style ={{height:"5rem", width:"5rem"}}/>
       <div id='title'>
         <p>cacheflowQL</p>
       </div>

@@ -44,6 +44,7 @@ a {
   padding: 10px;
   transition: all 0.2s;
   z-index: 5;
+  min-height: 6rem;
 }
 
 /* Footer*/
