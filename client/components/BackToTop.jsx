@@ -1,14 +1,11 @@
-import React from "react";
+import React from 'react';
 
 function BackToTop() {
   function scrollToTop() {
-    // const scrollTo = document.querySelector("#introParent");
-    // scrollTo.scrollIntoView({ behavior: "smooth" });
-
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 
